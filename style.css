@@ -81,6 +81,13 @@ body {
   margin: 20px 0;
 }
 
+
+.gif_container img {
+  max-width: 300px;  
+  height: auto;      
+  border-radius: 10px;  
+}
+
 p {
   color: white;
   margin-left: 50%;
