@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yes!</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    
-    <audio src="onlyleehi.mp3" autoplay loop></audio>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="onlyleehi.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <div class="container">
-      <div>
-        <h1 class="header_text">Yownnnnn salamat baks</h1>
-      </div>
-      <div class="gif_container">
-        <img
-          src="pakyu.jpg"
-          alt="pakyu ka boss!"
-        />
-      </div>
-      <button class="btn" id="yesButton" onclick="nextPage()">
-        Salamat sa pagsali bak is la s swertehin ka ng 10 years
-      </button>
+        <div>
+            <h1 class="header_text">Yownnnnn salamat baks</h1>
+        </div>
+
+        <div class="gif_container">
+            <div class="tenor-gif-embed"
+                 data-postid="16606050094708454978"
+                 data-share-method="host"
+                 data-aspect-ratio="1.02469"
+                 data-width="100%">
+                <a href="https://tenor.com/view/cat-gif-16606050094708454978">
+                    Cat Sticker
+                </a>
+            </div>
+        </div>
+
+        <button class="btn" id="yesButton" onclick="nextPage()">
+            Salamat sa pagsali bakis, swertehin ka ng 10 years
+        </button>
     </div>
 
+    <script async src="https://tenor.com/embed.js"></script>
+
     <script>
-      function nextPage() {
-        // Since this is the final page, this alert confirms it
-        alert("may bitaw kana");
-      }
+        function nextPage() {
+            alert("may bitaw kana");
+
+            // Replace this with your own link
+            window.location.href = "https://YOUR-LINK-HERE.com";
+        }
     </script>
-  </body>
+
+</body>
 </html>
