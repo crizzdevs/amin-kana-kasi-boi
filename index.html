@@ -1,52 +1,80 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sali kana pls huhuhu</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div>
-        <h1 class="header_text">magpa membership ka na sa org ;-; plsplspls </h1>
-      </div>
-      <div class="gif_container">
-        <img
-          src="kilig.jpg"
-          alt="kupal ka talaga boss"
-        />
-      </div>
-      <div class="buttons">
-        <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-        <button
-          class="btn"
-          id="noButton"
-          onmouseover="moveButton()"
-          onclick="moveButton()"
-        >
-          No
-        </button>
-      </div>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+```
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="pleasejoin.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<div class="container">
+    <div>
+        <h1 class="header_text">
+            magpa membership ka na sa org ;-; plsplspls
+        </h1>
     </div>
 
-    <script>
-      function nextPage() {
-        window.location.href = "Yes.html";
-      }
+    <div class="gif_container">
+        <img
+            src="kilig.jpg"
+            alt="kupal ka talaga boss"
+        >
+    </div>
 
-      function moveButton() {
-        var x =
-          Math.random() *
-          (window.innerWidth -
-            document.getElementById("noButton").offsetWidth);
-        var y =
-          Math.random() *
-          (window.innerHeight -
-            document.getElementById("noButton").offsetHeight);
-        document.getElementById("noButton").style.left = `${x}px`;
-        document.getElementById("noButton").style.top = `${y}px`;
-      }
-    </script>
-  </body>
+    <div class="buttons">
+        <button class="btn" id="yesButton" onclick="nextPage()">
+            Yes
+        </button>
+
+        <button
+            class="btn"
+            id="noButton"
+            onmouseover="moveButton()"
+            onclick="moveButton()"
+        >
+            No
+        </button>
+    </div>
+</div>
+
+<script>
+    // Start music after first interaction
+    const music = document.getElementById("bgMusic");
+
+    function startMusic() {
+        music.play().catch(() => {});
+        document.removeEventListener("click", startMusic);
+        document.removeEventListener("mousemove", startMusic);
+    }
+
+    document.addEventListener("click", startMusic);
+    document.addEventListener("mousemove", startMusic);
+
+    function nextPage() {
+        window.location.href = "Yes.html";
+    }
+
+    function moveButton() {
+        const button = document.getElementById("noButton");
+
+        const x = Math.random() * (window.innerWidth - button.offsetWidth);
+        const y = Math.random() * (window.innerHeight - button.offsetHeight);
+
+        button.style.position = "absolute";
+        button.style.left = `${x}px`;
+        button.style.top = `${y}px`;
+    }
+</script>
+```
+
+</body>
 </html>
