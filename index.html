@@ -6,28 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sali kana pls huhuhu</title>
     <link rel="stylesheet" href="style.css">
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+    }
+
+    .container {
+        min-height: 100vh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .header_text {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        padding: 0 10px;
+    }
+
+    .gif_container {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .gif_container img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn {
+        min-width: 120px;
+        padding: 14px 24px;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+    }
+
+    #noButton {
+        position: relative;
+    }
+
+    @media (max-width: 480px) {
+        .buttons {
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+</style>
+```
+
 </head>
 <body>
 
 ```
-<!-- Background Music -->
 <audio id="bgMusic" loop>
     <source src="pleasejoin.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
 </audio>
 
 <div class="container">
-    <div>
-        <h1 class="header_text">
-            magpa membership ka na sa org ;-; plsplspls
-        </h1>
-    </div>
+    <h1 class="header_text">
+        magpa membership ka na sa org ;-; plsplspls
+    </h1>
 
     <div class="gif_container">
-        <img
-            src="kilig.jpg"
-            alt="kupal ka talaga boss"
-        >
+        <img src="kilig.jpg" alt="kupal ka talaga boss">
     </div>
 
     <div class="buttons">
@@ -39,25 +108,24 @@
             class="btn"
             id="noButton"
             onmouseover="moveButton()"
-            onclick="moveButton()"
-        >
+            ontouchstart="moveButton()"
+            onclick="moveButton()">
             No
         </button>
     </div>
 </div>
 
 <script>
-    // Start music after first interaction
     const music = document.getElementById("bgMusic");
 
     function startMusic() {
         music.play().catch(() => {});
         document.removeEventListener("click", startMusic);
-        document.removeEventListener("mousemove", startMusic);
+        document.removeEventListener("touchstart", startMusic);
     }
 
     document.addEventListener("click", startMusic);
-    document.addEventListener("mousemove", startMusic);
+    document.addEventListener("touchstart", startMusic);
 
     function nextPage() {
         window.location.href = "Yes.html";
@@ -66,12 +134,15 @@
     function moveButton() {
         const button = document.getElementById("noButton");
 
-        const x = Math.random() * (window.innerWidth - button.offsetWidth);
-        const y = Math.random() * (window.innerHeight - button.offsetHeight);
+        const maxX = window.innerWidth - button.offsetWidth - 20;
+        const maxY = window.innerHeight - button.offsetHeight - 20;
 
-        button.style.position = "absolute";
-        button.style.left = `${x}px`;
-        button.style.top = `${y}px`;
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        button.style.position = "fixed";
+        button.style.left = x + "px";
+        button.style.top = y + "px";
     }
 </script>
 ```
