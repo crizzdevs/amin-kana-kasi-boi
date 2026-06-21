@@ -1,51 +1,134 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yes!</title>
-    <link rel="stylesheet" href="style.css">
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #fff;
+    }
+
+    .container {
+        min-height: 100vh;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header_text {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .gif_container {
+        width: 100%;
+        max-width: 350px;
+        margin: 20px 0;
+    }
+
+    .tenor-gif-embed {
+        width: 100% !important;
+    }
+
+    .btn {
+        width: 90%;
+        max-width: 400px;
+        padding: 15px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+        .header_text {
+            font-size: 1.6rem;
+        }
+
+        .btn {
+            width: 95%;
+            font-size: 0.95rem;
+        }
+    }
+</style>
+```
+
 </head>
 <body>
 
-    <!-- Background Music -->
-    <audio autoplay loop>
-        <source src="yay.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+```
+<audio id="bgMusic" loop>
+    <source src="yay.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="container">
-        <div>
-            <h1 class="header_text">Yownnnnn salamat baks</h1>
+<div class="container">
+    <h1 class="header_text">
+        Yownnnnn salamat baks
+    </h1>
+
+    <div class="gif_container">
+        <div
+            class="tenor-gif-embed"
+            data-postid="16606050094708454978"
+            data-share-method="host"
+            data-aspect-ratio="1.02469"
+            data-width="100%">
+            <a href="https://tenor.com/view/cat-gif-16606050094708454978">
+                Cat Sticker
+            </a>
         </div>
-
-        <div class="gif_container">
-            <div class="tenor-gif-embed"
-                 data-postid="16606050094708454978"
-                 data-share-method="host"
-                 data-aspect-ratio="1.02469"
-                 data-width="100%">
-                <a href="https://tenor.com/view/cat-gif-16606050094708454978">
-                    Cat Sticker
-                </a>
-            </div>
-        </div>
-
-        <button class="btn" id="yesButton" onclick="nextPage()">
-            Salamat sa pag yes baks, pindutin mo rito para swertehin ka ng 10 years
-        </button>
     </div>
 
-    <script async src="https://tenor.com/embed.js"></script>
+    <button class="btn" id="yesButton" onclick="nextPage()">
+        Salamat sa pagsali bakis, swertehin ka ng 10 years
+    </button>
+</div>
 
-    <script>
-        function nextPage() {
-            alert("may bitaw kana");
+<script async src="https://tenor.com/embed.js"></script>
 
-            // Replace this with your own link
-            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeus2Ul63XR7stpSkLbYw6WlfWO5Loje4jfWuK9MCtxCHo8dQ/viewform?usp=header";
-        }
-    </script>
+<script>
+    // Start music on first interaction (works better on phones)
+    const music = document.getElementById("bgMusic");
+
+    function startMusic() {
+        music.play().catch(() => {});
+        document.removeEventListener("click", startMusic);
+        document.removeEventListener("touchstart", startMusic);
+    }
+
+    document.addEventListener("click", startMusic);
+    document.addEventListener("touchstart", startMusic);
+
+    function nextPage() {
+        alert("may bitaw kana");
+
+        window.open(
+            "https://docs.google.com/forms/d/e/1FAIpQLSeus2Ul63XR7stpSkLbYw6WlfWO5Loje4jfWuK9MCtxCHo8dQ/viewform?usp=header",
+            "_blank"
+        );
+    }
+</script>
+```
 
 </body>
 </html>
